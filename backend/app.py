@@ -51,7 +51,7 @@ def get_layers():
     return jsonify({
         "layers": [
             {
-                "name": "parcel",
+                "name": "parcels",
                 "endpoint": "/api/parcels.geojson",
                 "geometry_type": "MultiPolygon",
                 "crs": "EPSG:4326"
@@ -88,7 +88,7 @@ def get_parcels():
                 ASS_ACTUAL,
                 ASS_CLASSI,
                 ST_AsGeoJSON(ST_Force2D(geom)) AS geometry
-            FROM parcel;
+            FROM parcels;
         """
 
 
@@ -110,7 +110,7 @@ def get_parcels():
 
         geojson = {
             "type": "FeatureCollection",
-            "name": "parcel",
+            "name": "parcels",
             "features": features
         }
 
